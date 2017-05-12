@@ -1,0 +1,36 @@
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="description" content="{2:à décrire}">
+			<meta name="viewport" content="width=device-width" /> 
+			<title>JavaScript Introductiont</title>
+			<!-- <link rel="stylesheet" href="css/style.css"> -->
+			<!-- <link rel=stylesheet type="text/css" href="css/normalize.css"> -->
+			
+		</head>
+		<body>
+
+			<h1>Titre</h1>
+		
+			<section> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus provident totam atque dolorum corporis asperiores, sequi eligendi quia amet similique, harum sit, consequatur aliquam quis ex nihil numquam in quisquam!</section>
+			
+
+			<script>
+
+			//Fonction qui permet de retourner les informations de surnames dans la partie section au lieu du Lorem
+
+			var name = 'Legros'; //string
+			var firstname = 'Céline'; 
+			var age = 23; //number
+			var inscription = true; //booléen
+			var answer = 45.2; //decimal
+			console.log(name + ' ' + firstname); //concaténation
+			console.log(age+answer) //addition
+			var surnames = firstname + ' '+ 'Gianita Ghislaine';
+			mySection = document.querySelector('section');
+			console.log(mySection);
+			mySection.innerHTML = surnames;
+			</script>
+		</body>
+		</html>

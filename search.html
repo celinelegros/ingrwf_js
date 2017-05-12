@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Recherche</title>
+</head>
+<body>
+	<header>
+		<form action="">
+			<input type="text" id="search">
+			<button>Search</button>
+		</form>
+	</header>
+
+	<section></section>
+
+	<footer><a href="http://google.be">Google</a></footer>
+
+	<script>
+		myButton = document.querySelector('button');
+		
+
+		//Fonction qui permet de retourner les mots clés envoyer avec le formulaire
+
+		myButton.onclick = function(event) {
+			event.preventDefault();
+			var mySearch =  document.querySelector('#search');
+			myKeyword = document.querySelector('section');
+			myKeyword.innerHTML = mySearch.value;
+		};
+
+		// Fonction qui empêche le lien Google de s'ouvrir
+
+		myLink = document.querySelector("footer a");
+
+		myLink.onclick = function(event) {
+			event.preventDefault();
+			alert('coucou');
+
+		}		
+	</script>
+
+
+</body>
+</html>

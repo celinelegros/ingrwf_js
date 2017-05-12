@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Fonctions</title>
+</head>
+<body>
+	<h1>Titre par défaut</h1>
+		<p>Lundi</p>
+		<p>Mardi</p>
+
+		<div>Passez la souris</div>
+
+	<script>
+
+	// //On crée une fonction Main qui change le texte de H1 une fois que la page est chargée
+
+	// 	function Main() {
+	// 		document.querySelector("h1").innerHTML = "OK, chargé"
+	// 	}
+	// 	myBody = document.querySelector("body");
+		
+	// 	myBody.onload = Main;
+
+
+// Deuxième technique
+
+		
+		function Main(text) {
+		document.querySelector("h1").innerHTML = text;
+		 }
+		myP = document.querySelector("p");
+		myBody = document.querySelector("body");
+		myBody.onload = Main("OK, chargé");
+		myDiv = document.querySelector("div");
+
+
+		// Quand on clique sur le 1er P, la fonction Main change le h1 par le contenu de P 
+
+		myP.onclick = function() {
+			Main(this.innerHTML);
+		}
+
+		// Quand la souris passe au dessus de la div, la fonction Main change le h1 par une phrase définie
+
+		myDiv.onmouseover = function() {
+			Main("La souris est passée");
+		};
+
+		//Quand on enlève la souris de la div, la fct Main change le h1 par une phrase définie 
+		
+		myDiv.onmouseout = function(){
+			Main("Youpee");
+		}
+
+
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Fonctions version hard</title>
+</head>
+<body>
+
+<div id=nbreInput>	
+	<input type="number" id="nbre1">
+	<input type="number" id="nbre2">
+</div>
+
+<div id=choice>
+	<button class="plus">+</button>
+	<button class="moins">-</button>
+	<button class="divi">/</button>
+	<button class="mult">*</button>
+</div>
+
+<h1>Résultat</h1>
+<div id="result">
+	
+</div>
+
+
+<script>
+	 number1 = document.querySelector("#nbre1");
+	 number2 = document.querySelector("#nbre2");
+	 myBtns = document.querySelectorAll("#choice button");
+	 myCalcul = document.querySelector("#result");
+
+
+	 //events
+
+	 for (var i = 0; i < myBtns.length; i++) {
+	 	myBtns[i].addEventListener("click", function(event){
+	 		event.preventDefault();
+	 		myVal1 = number1.value;
+	 		myVal2 = number2.value;
+	 		myOperator = this.innerHTML;
+	 		
+	 		Calcul(myVal1, myVal2, myOperator); 
+	 	});
+	 };
+
+	 // fonctions calcul 
+
+	 var Calcul = function(val1, val2, operator){
+		val1 = parseFloat(val1);
+		val2 = parseFloat(val2);
+
+		// if (operator == "+"){
+		// 	total = val1 + val2;
+		// }
+		// else if (operator == "-"){
+		// 	total = val1 - val2;
+		// }
+		// else if (operator == "*"){
+		// 	total = val1 * val2;
+		// }
+		// else {
+		// 	total = val1/val2;
+		// }
+		
+		// myCalcul.innerHTML = total;
+
+		switch (operator) {
+			
+			case "+" :
+			total = val1 + val2;
+			break;
+
+			case "-" :
+			total = val1 - val2;
+			break;
+
+			case "*" :
+			total = val1 * val2;
+			break;
+
+			default :
+			total = val1 / val2;
+			break;
+
+		}
+
+		myCalcul.innerHTML += val1 + operator + val2 + "=" + total + "<br>";
+	 };
+
+
+</script>
+
+</body>
+</html>

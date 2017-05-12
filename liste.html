@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Listes</title>
+</head>
+<body>
+	<form action="">
+		<input type="text" id="nom" placeholder="votre nom">
+		<button>OK</button>
+	</form>
+	<ul>
+		
+	</ul>
+
+	<button id="clearbutton">Clear All</button>
+
+	<script>
+		myName = document.querySelector("#nom");
+		myBtn = document.querySelector("button");
+		myList = document.querySelector("ul");
+		myClearBtn = document.querySelector("#clearbutton");
+
+		myBtn.addEventListener("click", function(event){
+			event.preventDefault();
+
+			if (myName.value.length > 0){
+
+			myList.innerHTML += "<li>" + myName.value + "</li>";
+			clearInput();
+			myName.focus();
+
+			function clearInput(){
+				myName.value = "";
+				}	
+			}
+			else {
+
+			alert("entrez qqchose");
+			myName.focus();
+			}
+
+		})
+
+		myClearBtn.addEventListener("click", function(event){
+			event.preventDefault();
+			myList.innerHTML = "";
+		})
+		
+	</script>
+</body>
+</html>

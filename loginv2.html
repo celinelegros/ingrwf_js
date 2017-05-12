@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Login Version plus hard</title>
+	<style>
+		body{
+			display: flex;
+			flex-direction: column;
+		}
+		#boiteCnx{
+			padding: 50px;
+			width: 25%;
+			background-color: lightgrey;
+
+		}
+		form{
+			display: flex;
+			flex-direction: column;
+		}
+		p{
+			text-align: right;
+		}
+		.hidden{
+			display: none;
+		}
+
+	</style>
+</head>
+
+<body>
+
+<h2>Login</h2>
+
+<div id="boiteCnx">
+	<p>X</p>
+	<form action="" id="login">
+		<input type="text" id="pseudo" placeholder="login">
+		<input type="password" id="pass" placeholder="password">
+		<button>Connexion</button>
+	</form>
+</div>
+	
+<script>
+	myLog = document.querySelector('h2');
+	myClose = document.querySelector('p');
+	myBox = document.querySelector('#boiteCnx')
+
+	myBox.classList.add('hidden');
+
+	myLog.addEventListener("click", function(){
+		myBox.classList.remove('hidden');
+	});
+
+	myClose.addEventListener("click", function(){
+		myBox.classList.add('hidden');
+	})
+
+</script>
+
+
+</body>
+
+</html>

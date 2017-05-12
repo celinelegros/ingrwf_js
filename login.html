@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+	<style>
+		section{
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+
+	<header>
+		<form action="" id="login">
+			<input placeholder="login" type="text" id="pseudo">
+			<button>Connexion</button>
+		</form>
+	</header>	
+
+	<section>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam porro voluptates hic voluptatem nulla labore perspiciatis? Omnis optio quae quidem laboriosam magnam amet, sapiente ipsa ullam, incidunt nulla delectus, libero.
+	</section>
+
+	<script>
+		var myButton = document.querySelector('button');
+
+		myButton.onclick = function(event){
+			event.preventDefault();
+			myLog = document.querySelector('#pseudo').value;
+
+			//Si mon nom de Login est admin --> ok + affichage du texte de la section, si c'est vide --> Taper qqchose, si c'est autre chose --> pas ok 
+
+		if (myLog == 'admin'){
+			alert('ok');
+			mySection = document.querySelector('section');
+			mySection.style.display = "block";
+			}
+
+		else if (myLog == ''){
+			alert('Tapez quelque chose bon sang');
+		}
+
+		else{
+			alert('pas ok');
+			}
+		};
+
+
+
+	</script>
+
+
+
+</body>
+</html>

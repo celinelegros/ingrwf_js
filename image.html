@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Images</title>
+	<style>
+		body{
+			display: flex;
+		}
+		aside{
+			display: flex;
+			flex-direction: column;
+			width: 200px;
+		}
+		#img1, #img2, #img3{
+			margin: 20px;
+			width: 100px;
+			height: 100px;
+		}
+		section img{
+			width: 200px;
+			height: 200px;
+		}
+		section{
+			position: relative;
+		}
+		.fondu {
+			opacity: 0.4;
+			transition: opacity 0.5s linear
+		}
+		figcaption{
+			position: absolute;
+			width: 100%;
+			margin-top: -22px;
+			background-color: white;
+			opacity: 0.5;
+		}
+	</style>
+</head>
+
+
+
+<body>
+
+<aside>
+	<img id="img1" src="http://lorempicsum.com/futurama/200/200/5" alt="Futurama">
+	<img id="img2" src="http://lorempicsum.com/nemo/200/200/5" alt="Nemo">
+	<img id="img3" src="http://lorempicsum.com/rio/200/200/5" alt="Rio">
+</aside>
+
+<section>
+	<img src="" alt="">
+	<figcaption></figcaption>
+</section>
+
+
+<script>
+
+
+
+
+	myImg = document.querySelectorAll("aside img");
+	myBigImg = document.querySelector('section img');
+	
+
+
+	//Va chercher aléatoirement une image parmis celle de l'aside et va l'afficher dans la partie serction
+
+	var Load = Math.floor((Math.random() * myImg.length));
+		myBigImg.src = myImg[Load].src;
+
+
+	for (var i = 0; i < myImg.length; i++) {
+
+		// Au click, la src de mon image est envoyée dans la partie section/img
+		myImg[i].addEventListener("click", function(){
+			var mySize = this.getAttribute("src");
+			myName = this.getAttribute('alt');
+			myBigImg = document.querySelector('section img');
+			myBigImg.src = mySize;
+		// Au click, le alt de mon image est envoyée dans la partie section/figcaption
+			myFigCap = document.querySelector('section figcaption');
+			myFigCap.innerHTML = 'Ceci est ' + myName;
+		
+		//La classe 'fondu' est enlevée de toutes les images si on ne clique pas dessus
+			for (var j = 0; j < myImg.length; j++) {
+				myImg[j].classList.remove('fondu');
+			};
+			this.classList.add('fondu');
+		});
+	};
+
+
+
+
+</script>
+	
+</body>
+</html>
