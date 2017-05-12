@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Personnel</title>
+	<style>
+		main{
+			display: flex;
+		}
+		aside{
+			width: 25%;
+		}
+		.bad{
+			color: red;
+		}
+		form{
+			display: flex;
+			flex-direction: column;
+		}
+	</style>
+</head>
+<body>
+<main>
+
+<form action="">
+	<input type="text" id="nom" name="nom" placeholder="Votre nom">
+	<input type="text" id="firstname" name="prenom" placeholder="Votre prénom">
+	<input type="email" id="email" name="email" placeholder="Votre email">
+	<input type="number" id="age" name="age" placeholder="Votre âge">
+	<input type="number" id="tel" name="telephone" placeholder="Votre téléphone">
+	<div>
+		<input type="checkbox" id="inscription" name="formation"> Inscription 
+	</div>
+	<button id="add">Ajouter</button>
+</form>
+
+	<aside>
+		<ul></ul>
+	</aside>
+	<section>
+		<h1>Nom et le prénom</h1>
+		<dl>
+			<dt>Téléphone</dt>
+			<dd class="num">Le numéro de la personne</dd>
+			<dt>Email</dt>
+			<dd class="email">L'email de la personne</dd>
+			<dt>Age</dt>
+			<dd class="age">0</dd>
+			<dt>Formation</dt>
+			<dd class="inscrit">Oui</dd>
+		</dl>
+	</section>
+</main>
+
+
+<script>
+	personne = {
+		"nom" : "Legros",
+		"prenom" : "Céline",
+		"telephone" : "0495/67.81.05",
+		"email" : "test@gmail.com",
+		"formation" : true,
+		"age" : 23
+	};
+
+	myPersonnel = new Array();
+
+	myPersonnel.push({
+		"nom" : "Legros",
+		"prenom" : "Jérôme",
+		"telephone" : "0494/16.16.53",
+		"email" : "testJeje@gmail.com",
+		"formation" : false,
+		"age" : 23				
+	});
+
+		myPersonnel.push({
+		"nom" : "Legros",
+		"prenom" : "Céline",
+		"telephone" : "0495/67.81.05",
+		"email" : "test@gmail.com",
+		"formation" : true,
+		"age" : 23				
+	});
+
+	console.log(myPersonnel);
+
+	//selecteur 
+
+	myList = document.querySelector("aside ul");
+	myName = document.querySelector("section h1");
+	myNum = document.querySelector(".num");
+	myMail = document.querySelector(".email");
+	myAge = document.querySelector('.age');
+	myInscrit = document.querySelector('.inscrit');
+	myAdd = document.querySelector('form button');
+
+	//selecteur formulaire 
+	myNewNom = document.querySelector('#nom');
+	myNewPrenom = document.querySelector('#firstname');
+	myNewTel = document.querySelector('#tel');
+	myNewEmail = document.querySelector('#email');
+	myNewAge = document.querySelector('#age');
+	myNewInscrit = document.querySelector("#inscription")
+	myNewBtn = document.querySelector('#add');
+
+	// Fonction pour appeler indépendamment chaque array en fonction de son id
+	function AffData (id) {
+		myName.innerHTML = myPersonnel[id].nom + " "+ myPersonnel[id].prenom;
+		myNum.innerHTML = myPersonnel[id].telephone;
+		myMail.innerHTML = myPersonnel[id].email;
+		myAge.innerHTML = myPersonnel[id].age;
+		if (myPersonnel[id].formation == true) {
+			myInscrit.innerHTML = "Inscrit";
+			myInscrit.classList.remove('bad');
+		}	
+		else{
+			myInscrit.innerHTML = "Pas inscrit";
+			myInscrit.classList.add('bad');
+		}
+	}
+
+	myNewBtn.addEventListener('click', function(e) {
+	e.preventDefault();
+		if (myNewInscrit.checked == true ) {
+			inscription = true;
+			myInscrit.innerHTML = "Inscrit";
+			myInscrit.classList.remove('bad');
+		}
+		 else {
+		 	inscription = false;
+		 	myInscrit.innerHTML = "Pas inscrit";
+			myInscrit.classList.add('bad');
+		 }
+	newPersonne = {
+	"nom" : myNewNom.value,
+	"prenom" : myNewPrenom.value,
+	"telephone" : myNewTel.value,
+	"email" : myNewEmail.value,
+	"age" : myNewAge.value,
+	"inscription" : inscription,
+		}
+
+	myPersonnel.push(newPersonne);
+	console.log(myPersonnel);
+	CreateList();
+	});
+
+	function CreateList() {
+		myList.innerHTML = "";
+		for (var i = 0; i < myPersonnel.length; i++) {
+		myList.innerHTML += '<li data-id="' + i+ '">' + myPersonnel[i].nom + ' '+myPersonnel[i].prenom + '</li>';
+
+		};
+
+	myLi = document.querySelectorAll('ul li');
+	for (var i = 0; i < myLi.length; i++) {
+
+		myLi[i].addEventListener('click', function() {
+
+			// On met THIS pour qualifier l'objet sur lequel on a cliqué (on ne met pas myLi pcq c'est une boucle -_-)
+
+		var myId = this.getAttribute('data-id');
+		AffData(myId);
+		
+			});
+		}
+
+	}
+
+	CreateList();
+
+</script>
+
+</body>
+</html>
