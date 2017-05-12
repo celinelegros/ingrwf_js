@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Couleurs</title>
+	<style>
+		section{
+			display: flex;
+			justify-content: center;
+		}
+		p{
+			text-align: center;
+			font-family: Arial;
+			font-size: 40px;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+		}
+		#redbox{
+			background-color : red;
+		}
+		#bluebox{
+			background-color: blue;
+		}
+		#greenbox{
+			background-color: green;
+		}
+	</style>
+</head>
+
+<body>
+
+<section>
+	<div id="redbox" data-color="red">
+	</div>
+
+	<div id="bluebox" data-color="blue">
+	</div>
+
+	<div id="greenbox" data-color="green">
+	</div>
+
+</section>	
+
+<p>Titre</p>
+
+
+<script>
+
+	// VERSION INDIVUEL
+
+	// color1 = document.querySelector('#redbox');
+	// color2 = document.querySelector('#bluebox');
+	// color3 = document.querySelector('#greenbox');
+
+	// color1.onclick = function(event){
+	// 	myText = document.querySelector('p');
+
+	// 	myText.style.color = "red";
+	// } 
+
+	// color2.onclick = function(event){
+	// 	myText = document.querySelector('p');
+
+	// 	myText.style.color = "blue";
+	// }
+	// color3.onclick = function(event){
+	// 	myText = document.querySelector('p');
+
+	// 	myText.style.color = "green";
+	// }
+
+
+
+	//VERSION AVEC ARRAY
+
+	myDivs = document.querySelectorAll("section div");
+	for (var i = 0; i < myDivs.length; i++) {
+		myDivs[i].addEventListener("click", function(){
+			myColor = this.getAttribute("data-color");
+			document.querySelector('p').style.color = myColor;
+		});
+	};
+
+</script>
+
+
+</body>
+</html>
