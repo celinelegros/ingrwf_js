@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Jeu de hasard</title>
+</head>
+<body>
+	<h1>Tente ta chance</h1>
+	<form action="">
+	<input type="number" id="nbre" placeholder="entre un chiffre">
+	<button>Go</button>
+	</form>
+
+	<h2 class="resultat"></h2>
+
+	<div>
+		<p>Déjà essayé :</p>
+		<ul>
+			
+		</ul>
+	</div>
+
+	<script>
+		myNumber = document.querySelector("form input");
+		myButton = document.querySelector("form button");
+		myAnswer = document.querySelector(".resultat");
+		myRandomValue = Math.floor(Math.random()*50);
+		myKeep = document.querySelector("ul")
+
+		alert(myRandomValue);
+
+		myButton.addEventListener("click", function(event){
+			event.preventDefault();
+
+			myTest = parseInt(myNumber.value);
+			keepMyAnswer();
+
+			switch(true){
+				case myRandomValue < myTest : 
+				myAnswer.innerHTML = "Trop grand";
+				break;
+
+				case myRandomValue > myTest : 
+				myAnswer.innerHTML = "Trop petit";
+				break;
+
+				case myRandomValue == myTest :
+				myAnswer.innerHTML = "Bien joué";
+			}
+			
+			function keepMyAnswer(){
+				myKeep.innerHTML += "<li>" + myTest + "</li>";
+			}
+
+		})
+
+	</script>
+
+
+
+</body>
+</html>
