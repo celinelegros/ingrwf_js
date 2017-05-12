@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calcul</title>
+</head>
+
+<body>
+
+	<form action="">
+		<label for="">Nombre 1</label>
+		<input type="number" id="nbre1">
+		<label for="">Nombre 2</label>
+		<input type="number" id="nbre2">
+		<button>Go</button>
+	</form>
+	
+	<section></section>
+	
+	<script>
+		myButton = document.querySelector('button');
+		myAddition = document.querySelector('section');
+
+		myButton.onclick = function(event) {
+			event.preventDefault();
+			myFirstNumber = document.querySelector('#nbre1');
+			mySecondNumber = document.querySelector('#nbre2');
+
+			//parseInt permet de remplacer la "chaine de caractère" par des nombres et d'effectuer le calcul
+			//parseFloat permet la même chose mais avec des nombres décimaux
+
+			myResult = parseInt(myFirstNumber.value) + parseInt(mySecondNumber.value);
+
+			myAddition.innerHTML = myResult;
+
+			// Ajoute l'attribut style + color à la SECTION (dans le DOM)
+
+			myAddition.style.color = "lightblue"
+		}		
+	</script>
+
+</body>
+</html>
